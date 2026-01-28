@@ -1,0 +1,51 @@
+---
+title: "HW 1"
+format: html
+---
+
+## 1 Instructions/Setup
+Make sure you have a GitHub account. In your GitHub account, create a GitHub repository named STAT3000.
+
+Create an RStudio Project, e.g., stat3000, connected to the GitHub repo (clone or connect existing).
+
+Answer each item inside this Quarto file. Show commands/code where requested.
+
+## 2 Tasks
+Project folders
+In your project root, create the folders: hw/, img/, data/, code/, docs/.
+Provide either:
+
+the Unix commands you used, or
+the R commands you used
+
+```
+# Your commands here
+mkdir hw/
+
+```
+
+
+
+
+
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this 
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
