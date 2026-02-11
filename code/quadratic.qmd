@@ -128,7 +128,6 @@ format:
 
    ```
    # Your commands here
-   cp hw/hw1.qmd code/quadratic.qmd
    ```
 
 8. **Read coefficients from file using a relative path**
@@ -136,7 +135,6 @@ format:
    Edit `code/quadratic.qmd` so it reads `a`, `b`, `c` from `data/coefs.txt` using a **relative path**.
    In *this* document, show the R code you used (it should also appear in `quadratic.qmd`).
 
-  
     ```{r}
     # Your code here (example outline):
     
@@ -159,12 +157,39 @@ format:
         cat("The roots are x1 =", x1, ", x2 = ", x2)
       }
     
+
     ```
 9. **Switch to an absolute path and test portability**
 
    In `code/quadratic.qmd`, replace the relative path with:
    `file.path(getwd(), "data/coefs.txt")`
    Render it once to confirm it works.
+   
+    ```{r}
+    # Your code here (example outline):
+    
+    coefs <- scan(file.path(getwd(), "../data/coefs.txt")) #read numbers/string and return a vector
+    
+    a <- coefs[1]; b <- coefs[2]; c <- coefs[3]
+    
+    # then compute real roots again
+    
+      #
+      disc <- b^2 - 4*a*c
+     
+      
+      # Your code here to print only real roots
+     if (disc <0 ) {
+       cat("The discriminant is negative, hence no real roots")
+       } else {
+        x1<- 1/(2*a)*(-b+sqrt(disc))
+        x2 <- 1/(2*a)*(-b- sqrt(disc))
+        cat("The roots are x1 =", x1, ", x2 = ", x2)
+      }
+    
+
+    ```
+   
 
    Then **move the entire project folder** to a new folder name (e.g., `RtmpXXXX`).
    Re-render `code/quadratic.qmd`. Does it still render?

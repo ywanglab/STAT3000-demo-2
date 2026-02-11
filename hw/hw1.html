@@ -196,41 +196,53 @@ Create a simple plot in R (any plot you like), save it as <code>img/plot.png</co
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Example idea (you can change it):</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">png</span>(<span class="st">"../img/cars.png"</span>, <span class="at">width =</span> <span class="dv">800</span>, <span class="at">height =</span> <span class="dv">500</span>) <span class="co">#open png device</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(cars)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dev.off</span>() <span class="co"># close the device</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dev.off</span>() <span class="co"># close the current device and fall backs to "null derice 1" (no device open)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>::: {.cell-output .cell-output-stdout}</p>
 <pre><code>png 
   2 </code></pre>
 <p>::: :::</p></li>
-</ol>
-<p><img src="img/plot.png" class="img-fluid"></p>
-<ol start="4" type="1">
 <li><p><strong>Define a function and compute real roots</strong> In this document, define coefficients <span class="math inline">\(a=2\)</span>, <span class="math inline">\(b=-5\)</span>, <span class="math inline">\(c=-3\)</span>. Consider <span class="math inline">\(f(x) = ax^2 + bx + c\)</span>. Print the <strong>real</strong> solutions of <span class="math inline">\(f(x)=0\)</span> (if any).</p>
 <ul>
 <li>If the discriminant is negative, print a message like <code>"No real roots"</code>.</li>
 </ul>
-<pre><code>
-  # a &lt;- 2
-  # b &lt;- -5
-  # c &lt;- -3
-  # 
-  # disc &lt;- b^2 - 4*a*c
-  # disc
-
-  # Your code here to print only real roots
-</code></pre></li>
+<p>::: {.cell}</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">5</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  c <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">3</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  disc <span class="ot">&lt;-</span> b<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>a<span class="sc">*</span>c</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Your code here to print only real roots</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> (disc <span class="sc">&lt;</span><span class="dv">0</span> ) {</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">cat</span>(<span class="st">"The discriminant is negative, hence no real roots"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>   } <span class="cf">else</span> {</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    x1<span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>a)<span class="sc">*</span>(<span class="sc">-</span>b<span class="sc">+</span><span class="fu">sqrt</span>(disc))</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    x2 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>a)<span class="sc">*</span>(<span class="sc">-</span>b<span class="sc">-</span> <span class="fu">sqrt</span>(disc))</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"The roots are x1 ="</span>, x1, <span class="st">", x2 = "</span>, x2)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>::: {.cell-output .cell-output-stdout}</p>
+<pre><code>The roots are x1 = 3 , x2 =  -0.5</code></pre>
+<p>::: :::</p></li>
 <li><p><strong>Graph the quadratic on a specified interval</strong> Make a graph of <span class="math inline">\(f(x)\)</span> versus <span class="math inline">\(x\)</span> for <span class="math inline">\(x \in (-6, 6)\)</span>. Add:</p>
 <ul>
 <li>a horizontal line at <span class="math inline">\(y = 0\)</span></li>
 <li>points for the real roots (if they exist)</li>
 </ul>
-<pre><code># x &lt;- seq(-6, 6, length.out = 400)
-# fx &lt;- a*x^2 + b*x + c
-
-# Hint: use plot(x, fx, type="l") and abline(h=0)</code></pre></li>
+<p>::: {.cell}</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">6</span>, <span class="dv">6</span>, <span class="at">length.out =</span> <span class="dv">400</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fx <span class="ot">&lt;-</span> a<span class="sc">*</span>x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> b<span class="sc">*</span>x <span class="sc">+</span> c</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Hint: use plot(x, fx, type="l") and abline(h=0)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, fx, <span class="at">type=</span><span class="st">"l"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="fu">c</span>(x1,x2), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">col=</span><span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>::: {.cell-output-display} <img src="hw1_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"> ::: :::</p></li>
 <li><p><strong>Write coefficients to a text file using Unix</strong> Use Unix to create a file <code>data/coefs.txt</code> containing a single line with:</p>
 <pre><code>2 -5 -3</code></pre>
 <p>Show the Unix commands you used:</p>
-<pre><code># Your commands here</code></pre></li>
+<pre><code># Your commands here
+printf "2 -5 -3\n" &gt; data/coefs.txt</code></pre></li>
 <li><p><strong>Copy the Quarto file using Unix</strong> Use Unix to copy <code>hw1.qmd</code> into <code>code/</code> and name it <code>quadratic.qmd</code>. Show the Unix command(s):</p>
 <pre><code># Your commands here</code></pre></li>
 <li><p><strong>Read coefficients from file using a relative path</strong></p>
@@ -252,7 +264,12 @@ Create a simple plot in R (any plot you like), save it as <code>img/plot.png</co
 <li><p><strong>Git workflow</strong> Make at least <strong>three commits</strong> with meaningful messages, such as:</p></li>
 </ol>
 <ul>
-<li><p><code>Add initial project structure</code></p></li>
+<li><code>Add initial project structure</code></li>
+</ul>
+<pre><code>git add -A
+git commit -m "Add initial project structure"
+git push</code></pre>
+<ul>
 <li><p><code>Add quadratic root computation</code></p></li>
 <li><p><code>Add rendering output to docs</code></p>
 <p>In this document, paste the output of:</p>
